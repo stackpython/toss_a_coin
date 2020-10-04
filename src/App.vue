@@ -1,15 +1,15 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h3> {{ message }} </h3>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+// data เก็บข้อมูลที่ component นั้นๆ เก็บไว้
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      message: 'Hello, Vue from Stackpython!'
+    };
   }
 }
 </script>
