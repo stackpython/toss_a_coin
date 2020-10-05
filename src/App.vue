@@ -7,6 +7,11 @@
 	<button @click="toss">Toss</button>
 	<button @click="add">Add Coin</button>
 	<button @click="remove">Remove Coin</button>
+
+  <!-- ทำการเพิ่มโค้ดส่วนที่แสดงผลค่า heads, tails จาก computed -->
+  <p>Heads: {{ heads }}</p>
+  <p>Tails: {{ tails }}</p>
+  <!------>
 </template>
 
 <script>
@@ -16,11 +21,20 @@ export default {
 		return {
 			status: ['H'],
 		};
-	},
+  },
+  // สร้างตัวแปรใน computed เพื่อนับค่าของ หัว ก้อย
+  computed: {
+    // สามารถอ่านรายละเอียดวิธีการนับจำนวนสมาชิกได้ที่ https://stackoverflow.com/a/47377879
+    heads() {
+			return this.status.filter(cur => cur === 'H').length;
+		},
+		tails() {
+			return this.status.filter(cur => cur === 'T').length;
+		},
+  },
 	methods: {
 		toss() {
 			const hOrT = 'HT';
-			// this.status = hOrT[Math.floor(Math.random() * 2)];
 			for (let i in this.status) {
 				this.status[i] = hOrT[Math.floor(Math.random() * 2)];
 			}
