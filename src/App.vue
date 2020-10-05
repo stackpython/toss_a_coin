@@ -1,12 +1,6 @@
 <template>
-  <h3> {{ message }} </h3>
-  <h5> {{ length }} </h5>
-  <p v-if='length > 30 && length < 50'>Your message is too long!</p>
-  <p v-else-if='length >= 50'>Your message is really long!</p>
-  <p v-else>Your message is okay.</p>
-  <button @click='handleClick'>Add (!) to message</button>
-
-  <h3 v-for='fruit in fruits' :key='fruit'>Fruit: {{ fruit }}</h3>
+  <h3>status: {{ status }}</h3>
+  <button @click='toss'>Toss</button>
 </template>
 
 <script>
@@ -14,23 +8,13 @@ export default {
   name: 'App',
   data() {
     return {
-      message: 'Hello, Vue from Stackpython!',
-      fruits: ['Apple', 'Orange', 'Banana']
-    };
-  },
-  computed: {
-    length() {
-      return this.message.length;
+      status: 'H'
     }
   },
   methods: {
-    handleClick() {
-      this.message = this.message + '!';
-    }
-  },
-  watch: {
-    message(newVal, oldVal) {
-      console.log(newVal, oldVal);
+    toss() {
+      const hOrT = 'HT';
+      this.status = hOrT[Math.floor(Math.random() * 2)];
     }
   }
 }
