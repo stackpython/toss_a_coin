@@ -21,6 +21,11 @@ export default {
     handleClick() {
       this.message = this.message + '!';
     }
+  },
+  watch: {
+    message(newVal, oldVal) {
+      console.log(newVal, oldVal);
+    }
   }
 }
 </script>
