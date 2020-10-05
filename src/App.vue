@@ -1,6 +1,9 @@
 <template>
   <h3> {{ message }} </h3>
   <h5> {{ length }} </h5>
+  <p v-if='length > 30 && length < 50'>Your message is too long!</p>
+  <p v-else-if='length >= 50'>Your message is really long!</p>
+  <p v-else>Your message is okay.</p>
   <button @click='handleClick'>Add (!) to message</button>
 </template>
 
