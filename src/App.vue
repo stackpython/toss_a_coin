@@ -5,6 +5,8 @@
   <p v-else-if='length >= 50'>Your message is really long!</p>
   <p v-else>Your message is okay.</p>
   <button @click='handleClick'>Add (!) to message</button>
+
+  <h3 v-for='fruit in fruits' :key='fruit'>Fruit: {{ fruit }}</h3>
 </template>
 
 <script>
@@ -12,7 +14,8 @@ export default {
   name: 'App',
   data() {
     return {
-      message: 'Hello, Vue from Stackpython!'
+      message: 'Hello, Vue from Stackpython!',
+      fruits: ['Apple', 'Orange', 'Banana']
     };
   },
   computed: {
