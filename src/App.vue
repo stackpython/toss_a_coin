@@ -1,10 +1,10 @@
 <template>
   <h3> {{ message }} </h3>
   <h5> {{ length }} </h5>
+  <button @click='handleClick'>Add (!) to message</button>
 </template>
 
 <script>
-// data เก็บข้อมูลที่ component นั้นๆ เก็บไว้
 export default {
   name: 'App',
   data() {
@@ -15,6 +15,11 @@ export default {
   computed: {
     length() {
       return this.message.length;
+    }
+  },
+  methods: {
+    handleClick() {
+      this.message = this.message + '!';
     }
   }
 }
