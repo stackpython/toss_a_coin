@@ -1,5 +1,6 @@
 <template>
   <h3> {{ message }} </h3>
+  <h5> {{ length }} </h5>
 </template>
 
 <script>
@@ -10,6 +11,11 @@ export default {
     return {
       message: 'Hello, Vue from Stackpython!'
     };
+  },
+  computed: {
+    length() {
+      return this.message.length;
+    }
   }
 }
 </script>
